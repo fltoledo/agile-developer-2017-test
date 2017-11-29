@@ -16,6 +16,29 @@
     </div>
 
     <div class="form__field">
+      Estimation   
+      <select name="issue[estimation]" class="form_select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>5</option>
+        <option>8</option>
+        <option>13</option>
+        <option>21</option>
+      </select>
+    </div>    
+
+    <div class="form__field">
+      Severity  
+      <select name="issue[severity]" class="form_select">
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+    </div>    
+
+
+    <div class="form__field">
       <textarea name="issue[description]" placeholder="Description..." class="form__textarea" rows="10">{{issue.description}}</textarea>
 
       {{#if errors.description}}

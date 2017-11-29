@@ -3,7 +3,20 @@ const { issueStore, severityStore } = require('../models');
 const router = express.Router();
 
 router.get('/', function(req, res) {
-  const issues = issueStore.getAll();
+  var issues;
+
+  switch(req.query.is){
+    case 'open':
+      issues = issueStore.getAllOpen();
+    break;
+    case 'closed':
+      issues = issueStore.getAllClosed();
+    break;
+    default:
+      issues = issueStore.getAll();
+    break;
+  }
+  
   res.render('issues/index', { issues });
 });
 

@@ -20,6 +20,16 @@
   fill: #e74c3c;
 }
 
+/* Low */
+.metric.low path.data-arc {
+  stroke: #e7ec3c;
+}
+
+.metric.low text {
+  fill: #e7ec3c;
+}
+
+
 /* High */
 .metric.high path.data-arc {
   stroke: #3498db;

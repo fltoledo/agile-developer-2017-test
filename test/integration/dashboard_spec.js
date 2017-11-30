@@ -16,4 +16,21 @@ describe('Dashboard', function() {
 
     cy.get('[data-test-open-issues]').should('contain', '2 open issues');
   });
+
+  it('Duplicated test, just to check the codeclimate', function() {
+    cy.resetDB();
+    cy.fixture({
+        status: 'open'
+    });
+    cy.fixture({
+        status: 'open'
+    });
+    cy.fixture({
+        status: 'closed'
+    });
+
+    cy.visit('/dashboard');
+
+    cy.get('[data-test-open-issues]').should('contain', '2 open issues');
+  });
 });

@@ -2,6 +2,14 @@ describe('Dashboard', function() {
 
   it('Shows the number of open issues in the Dashboard', function() {
     cy.resetDB();
+
+    cy.visit('/dashboard');
+    cy.get('[data-test-open-issues]').should('contain', '0 open issues');
+
+    cy.dataTest('high-gauge')
+        .should('exist')
+        .should('contain', '0');
+
     cy.fixture({
         status: 'open', 
         severity: 'High'
@@ -34,6 +42,14 @@ describe('Dashboard', function() {
     cy.dataTest('high-gauge')
         .should('exist')
         .should('contain', '67');
+
+    cy.dataTest('medium-gauge')
+        .should('exist')
+        .should('contain', '33');
+
+    cy.dataTest('low-gauge')
+        .should('exist')
+        .should('contain', '0');
   });
 
 });

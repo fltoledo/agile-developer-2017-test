@@ -7,11 +7,28 @@ router.get('/', function(req, res) {
   const openIssuesCount = openIssues.length;
   
   const highSeverityCount = openIssues.filter(issue => issue.severity === 'High').length;
-  const highSeverityPercentage = highSeverityCount/openIssuesCount;
+  var highSeverityPercentage = 0;
+  if (openIssuesCount != 0) {
+    highSeverityPercentage = highSeverityCount/openIssuesCount;
+  }
+
+  const mediumSeverityCount = openIssues.filter(issue => issue.severity === 'Medium').length;
+  var mediumSeverityPercentage = 0;
+  if (openIssuesCount != 0) {
+    mediumSeverityPercentage = mediumSeverityCount/openIssuesCount;
+  }
+
+  const lowSeverityCount = openIssues.filter(issue => issue.severity === 'Low').length;
+  var lowSeverityPercentage = 0;
+  if (openIssuesCount != 0) {
+    lowSeverityPercentage = lowSeverityCount/openIssuesCount;
+  }
 
   res.render('dashboard', {
     openIssuesCount,
-    highSeverityPercentage
+    highSeverityPercentage,
+    mediumSeverityPercentage,
+    lowSeverityPercentage
   });
 });
 

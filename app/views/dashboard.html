@@ -13,8 +13,15 @@
   </div>
 
   <div class='dashboard__panel'>
-           {{>gauge percentage=highSeverityPercentage class='high' title='High'}} 
-    </div>
+    {{>gauge percentage=highSeverityPercentage class='high' title='High'}} 
+  </div>
+
+  <div class='dashboard__panel'>
+    {{>gauge percentage=mediumSeverityPercentage class='medium' title='Medium'}} 
+  </div>
+
+  <div class='dashboard__panel'>
+    {{>gauge percentage=lowSeverityPercentage class='low' title='Low'}} 
   </div>
 
 </section>
